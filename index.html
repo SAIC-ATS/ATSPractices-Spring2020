@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="p5.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <script src="studentWork.js"></script>
+  <script src="lib/p5.play.js"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+
+  <div class="p-8 h-full w-full flex-col" style="max-width: 2400px">
+    <header class="flex-row">
+      <h1 class="text-2xl font-bold"> Art & Technology Practices: Spring 2020</h1>
+      <h2> Instructed by Kristin McWharter and Jenna Boyles </h2>
+    </header>
+    <!-- Content -->
+    <div class="flex flex-row flex-1 h-full">
+      <div class="mt-40" style="width: 300px">
+        <button class="block font-bold ml-6 mb-4 hover:text-orange-500 focus:outline-none"
+          onclick="showSketchbook()">Coding Sketchbooks</button>
+        <button class="block font-bold ml-6 mb-4 hover:text-orange-500 focus:outline-none" onclick="showFinal()">Final
+          Projects</button>
+        <button class="block font-bold ml-6 mb-4 hover:text-orange-500 focus:outline-none"
+          onclick="showAbout()">About</button>
+      </div>
+
+      <div class="flex-1">
+        <div class="mainpage mt-20 h-full w-full md:w-5/6 lg:w-4/5 ml-auto mr-auto" style="float:center">
+
+          <div class="about hidden" id="about">
+            <h2 class="text-2xl fint-bold text-orange-500">About</h2>
+            <div class="mt-10 overflow-y-auto">
+              <p>This team-taught, introductory course provides a foundation for most additional coursework in the Art
+                and Technology Studies department. Students are given a broad interdisciplinary grounding in the skills,
+                concepts, and hands-on experiences they will need to engage the potentials of new technologies in art
+                making. Every other week, a lecture and discussion group exposes students to concepts of electronic
+                media, perception, inter-media composition, emerging venues, and other issues important to artists
+                working with technologically based media. Students gained hands-on experience with a variety of forms
+                and techniques central to technologically-based art making.</p>
+              <br>
+              <p>Students developed a "coding" sketchbook using p5js where they explored the ways that composition,
+                animation, and interaction can be vehicles hardware such as web cameras, microphones, touch sensors and
+                arduino controlled circuits to investigate subjects such as surveillance, data collection,
+                collaboration, individual vs collective behaviors, 2D vs 3D, virtual vs physical, digital vs analog,
+                etc. </p>
+              <br>
+              <p> As the global outbreak of covid19 brought classes online, these research topics have become ever more
+                pertinent. We are very pleased to showcase a collection of projects here that include final projects in
+                addition to curated prototypes, playful investigations, and leaps of faith. We encourage you to explore,
+                interact, engage, and take pleasure here among the hard work they contributed to this online exhibition.
+              </p>
+            </div>
+          </div>
+
+          <div class="sketchbook hidden flex text-center" id="sketchbook">
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('ani')">Ani Quintana</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('yana')">Ayana Cooper</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('cathy')">Cathy Zhang</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('cher')">Cher Feng</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('chloe')">Chloe Thompson</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('harri')">Haruhi Kobayashi</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('jeff')">Jeffrey Kaya</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('jingzhou')">Jingzhou Long</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('lauren')">Lauren Chaszewski</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('lucas')">Lucas Flanders</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('minky')">Minky Ahn</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('os')">Os Wang</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('ravi')">Ravi Heeralal</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('rong')">Rong Bao</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('russell')">Russell Goins</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('sherrieFinal')">Sherrie Fay Lin</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('sanding')">Sanding Yi</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('sarah')">Sarah Won Kim</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('tim')">Tim Zhang</button>
+            <button class="font-bold mr-6 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showStudent('winnie')">Winnie Chen</button>
+          </div>
+
+          <div class="final hidden flex" id="final">
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('ani')">Ani Quintana</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('yana')">Ayana Cooper</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('cathy')">Cathy Zhang</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('cher')">Cher Feng</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('chloe')">Chloe Thompson</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('harri')">Haruhi Kobayashi</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('jeff')">Jeffrey Kaya</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('jingzhou')">Jingzhou Long</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('lauren')">Lauren Chaszewski</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('lucas')">Lucas Flanders</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('minky')">Minky Ahn</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('os')">Os Wang</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('ravi')">Ravi Heeralal</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('rong')">Rong Bao</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('russell')">Russell Goins</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('sherrie')">Sherrie Fay Lin</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('sanding')">Sanding Yi</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('sarah')">Sarah Won Kim</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('tim')">Tim Zhang</button>
+            <button class="font-bold mr-4 text-blue-500 mb-4 hover:text-gray-700 focus:outline-none"
+              onclick="showFinalProject('winnie')">Winnie Chen</button>
+
+            <!--aniFinal-->
+            <finalDiv class="hidden mt-6" id="ani_final" class="ab">
+              <h2><strong>INTERACTIVE GAME</strong></h2>
+              <p><em><span style="text-align: left; font-size: 14pt; ">Interactive "game" that counts your score.</span></em></p>
+              <p><span style="text-align: left; font-size: 10pt;">The point of the game is to click on the circle before it disappears and changes location.&nbsp;</span></p>
+              <p><span style="text-align: left; font-size: 10pt;"><a href="https://editor.p5js.org/aniqb/present/mvBAMWw1S" target="_blank" rel="noopener">https://editor.p5js.org/aniqb/present/mvBAMWw1S</a>&nbsp;</span></p>
+              <p>&nbsp;</p>
+              <p><iframe src="https://editor.p5js.org/aniqb/embed/mvBAMWw1S" width="400" height="200"></iframe></p>
+              <p><span style="text-align: left; font-size: 10pt;">This game is infinite on purpose and will only restarts if the whole browser is reloaded. This is because the point of this game is not to win or to loose but to keep pressing the "button".</span></p>
+              <ul>
+                <li style="text-align: left;">The code operates like a<strong> circuit board </strong>where if one of the elements doesn't cooperate as it should be, then the whole game will not be functional.</li>
+                <li>It is also like a<strong> button</strong>, because when you are able to "catch" the blue circle,<strong> the code </strong>will <strong>add </strong>another<strong> point </strong>to your score.&nbsp;</li>
+                <li>The&nbsp;<strong>circuit&nbsp;</strong>opens and closes every time that the blue<strong>"button"</strong> is pressed.</li>
+              </ul>
+            </finalDiv>
+            <!--yana-->
+            <finalDiv class="hidden mt-6" id="yana_final" class="ab">
+              <h2><strong>Puzzle of Positivity</strong></h2>
+              <p>Description:</p>
+              <p>The title of this piece is Puzzle of Positivity. This project/experiment is meant to spread positivity
+                and good vibes. What better way to do that than with compliments and words of affirmation? Compliments
+                and words of affirmation can boost your mood when you&rsquo;re having a rough time and quarantine has
+                been tough on everyone. I wanted to establish healthy habits as I personally find myself making comments
+                that are self-deprecating and it&rsquo;s something I&rsquo;m trying to stop doing. When given a phrase,
+                you are to recite it to yourself every morning for a week to give yourself a boost for the day ahead.
+                It&rsquo;s also a reminder to be kind to yourself and show compassion, as we can be our own worst
+                critics. You will also be sent an image of the mystery puzzle piece associated with the number you
+                picked to receive your phrase. The puzzle piece is a fun visual and a representation that this
+                compliment is now a piece of you. It&rsquo;s a building block in the puzzle of life and shows how we are
+                all connected even in quarantine.</p>
+                <p>&nbsp;</p>
+                <p><iframe src="https://editor.p5js.org/yana.coop103/embed/C5IRwYB4W" width="500" height="500"></iframe>
+              <p>Project Link: <a title="Link" href="https://editor.p5js.org/yana.coop103/sketches/C5IRwYB4W"
+                  target="_blank" rel="noopener">https://editor.p5js.org/yana.coop103/sketches/C5IRwYB4W</a></p>
+             
+              </p>
+            </finalDiv>
+            <!--cathy-->
+            <finalDiv class="hidden mt-6" id="cathy_final" class="ab">
+              <h2><strong>Lantern Project</strong></h2>
+              <p><strong>by Cathy Zhang</strong></p>
+              <p>For this project, I initially planned on using six lanterns for which when the audience walks by each
+                one of them, they will light up as if a "spirit" is guiding or protecting them. In order to fulfill my
+                plan, I decided on using an ultrasonic sensor, a type of distance sensor, to monitor the distance
+                between the person and the lanterns and send orders to the Arduino&nbsp;board and Arduino will send the
+                order to p5js, which will trigger the lanterns to light up and show the effect that the lanterns will
+                light up when someone walks by. The work is&nbsp;shown in the p5js&amp; ultrasonic sensor video. As you
+                will see,&nbsp;when there is an object in front of the sensor within 2 cm and 50 cm (the 2 cm was
+                planned for the sensor to be in a wall and disguised as part of the wall) the red light of the lantern
+                would light up.</p>
+              <p>&nbsp;</p>
+              <p><strong>Ultrasonic&nbsp;sensor board picture</strong></p>
+              <p><img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/9122112/files/170211120/preview?wrap=1&amp;verifier=HnxS1lUA0docLTcq32qQ5CM71JZNzNBfKPLwI3XM"
+                  alt="IMG_2717.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/9122112/files/170211120"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><strong>Ultrasonic&nbsp;sensor video</strong></p>
+              <p>&nbsp;</p>
+          <!--<p><iframe style="width: 400px; height: 225px; display: inline-block;" title="IMG_2713.MOV的视频播放器"
+                  data-media-type="video"
+                  src="https://saic.instructure.com/media_objects_iframe/m-3XTt1ci9G1FronvGLx9hB3ffWr9B8xJC?type=video"
+                  allowfullscreen="allowfullscreen" allow="fullscreen"
+                  data-media-id="m-3XTt1ci9G1FronvGLx9hB3ffWr9B8xJC"></iframe></p>-->    
+              <p>Arduino code: <a class="instructure_file_link" title="distance_sensor_1.ino"
+                  href="https://saic.instructure.com/users/9122112/files/170210907/download?wrap=1&amp;verifier=arzHXR6oRBNGdKViwLmOUdhAqVnlUO1G7CySm8vR"
+                  target="_blank" rel="noopener" data-canvas-previewable="false"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/9122112/files/170210907"
+                  data-api-returntype="File">distance_sensor_1.ino</a></p>
+              <p>&nbsp;</p>
+              <p><strong>P5js&amp; ultrasonic sensor video</strong></p>
+              <p>&nbsp;</p>
+             <!--<p><iframe style="width: 400px; height: 225px; display: inline-block;" title="IMG_2716.MOV的视频播放器"
+                  data-media-type="video"
+                  src="https://saic.instructure.com/media_objects_iframe/m-BamcT4jBxuMMjJxoAQuX3yQicPLYVP?type=video"
+                  allowfullscreen="allowfullscreen" allow="fullscreen"
+                  data-media-id="m-BamcT4jBxuMMjJxoAQuX3yQicPLYVP"></iframe></p>--> 
+              <p>P5js link to the code: <a href="https://editor.p5js.org/Cathyzhang126/sketches/lMVa7LhgZ"
+                  target="_blank" rel="noopener">https://editor.p5js.org/Cathyzhang126/sketches/lMVa7LhgZ</a></p>
+            </finalDiv>
+            <!--cher-->
+            <finalDiv class="hidden mt-6" id="cher_final" class="ab">
+              <h2><strong>"Untitled" by Cher Feng</strong></h2>
+              <p>&nbsp;</p>
+              <!--<p><iframe style="width: 400px; height: 250px; display: inline-block;"
+                  title="Video player for finalats.mp4" data-media-type="video"
+                  src="https://saic.instructure.com/media_objects_iframe/m-2ZJZodA5LofGwroXeqFuMdvb4pX7toFJ?type=video"
+                  allowfullscreen="allowfullscreen" allow="fullscreen"
+                  data-media-id="m-2ZJZodA5LofGwroXeqFuMdvb4pX7toFJ"></iframe></p>-->
+              <p>&nbsp;</p>
+              <p>This untitled piece is a handshake between an Arduino Uno potentiometer circuit and p5.js code that
+                allows the viewer to change the frequency at which the webcam feed is distorted. The live feed, at the
+                baseline, is the video itself, but it juggles between that visual and the visual of other smaller
+                fragments of the live feed collaged on top of itself, additionally with light distortion. The viewer may
+                build their own potentiometer circuit and change the serial port name in line 3 to match that of their
+                own in order to use their webcam and experience the handshake itself.</p>
+              <p>&nbsp;</p>
+              <p>Link to sketch: <a
+                  href="https://editor.p5js.org/chermfeng/sketches/bEjstpuQd">https://editor.p5js.org/chermfeng/sketches/bEjstpuQd</a>
+              </p>
+            </finalDiv>
+            <!--chloe-->
+            <finalDiv class="hidden mt-6" id="chloe_final" class="ab">
+              <h2><strong>Kitty Showdown</strong></h2>
+              <p><img
+                  src="https://saic.instructure.com/users/9068821/files/170128450/preview?wrap=1&amp;verifier=lxgUh2K4nE416CJPFdFnT4AIY4QaUKwunrljdSXi"
+                  alt="Kitty_Showdown-1.png" width="800" height="267"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/9068821/files/170128450"
+                  data-api-returntype="File" /></p>
+              <p><strong>Here is the link for the interactive webpage: </strong><a
+                  href="https://editor.p5js.org/Cthomp7/full/GuEOwxKhR">https://editor.p5js.org/Cthomp7/full/GuEOwxKhR</a>
+              </p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;"><span
+                    style="color: #2b3e50;"><strong>Description:</strong></span></span></p>
+              <p><span style="color: #2b3e50;">Kitty Showdown is a fun and interactive fighting game forcing you and
+                  your opponent to fight for the purr-fect victory! Inspired by the famous thrilling video game Street
+                  Fighter, t</span>he most intense cat fighter simulator today, Kitty Showdown, incorporates retro,
+                pixel graphics along with its un-fur-gettable characters. <span style="color: #2b3e50;">Get together
+                  with your family or fur-ends to play as either Mr. Meowster or Mr. Calico and show them your paw-some
+                  brawling skills.&nbsp;</span><span style="color: #2b3e50;">&nbsp;</span></p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;"><strong>How to play:</strong></span></p>
+              <p><span style="color: #2b3e50;"><strong>Mr. Meowster</strong> (White Cat) &ndash;
+                  <strong>Movements:</strong> a + d <strong>Punching:</strong> e</span></p>
+              <p><span style="color: #2b3e50;"><strong>Mr. Calico</strong> (Brown/White Cat) &ndash;
+                  <strong>Movements:</strong> right arrow + left arrow <strong>Punching:</strong> ?</span></p>
+              <p><span style="color: #2b3e50;">Once the game is over (a player is defeated), just click the game window
+                  to start a new game</span></p>
+              <p>&nbsp;</p>
+              <p>Visual Demonstrations of Actions</p>
+              <p><span style="color: #2b3e50;"> <img
+                    src="https://saic.instructure.com/users/9068821/files/170141173/preview?wrap=1&amp;verifier=M2o75BKL0VnGqw2ZHt0XrfQeJ7Cx3oX4dvfB81Wg"
+                    alt="Mr.Calico-Punching.gif" width="400" height="264"
+                    data-api-endpoint="https://saic.instructure.com/api/v1/users/9068821/files/170141173"
+                    data-api-returntype="File" /> </span></p>
+              <p><span style="color: #2b3e50;"><img
+                    src="https://saic.instructure.com/users/9068821/files/170141578/preview?wrap=1&amp;verifier=GYMCOWaqzptAiD4u15h9t0edtaXLh8Mee6X2i5rl"
+                    alt="Kitty-Brawl.gif" width="400" height="225"
+                    data-api-endpoint="https://saic.instructure.com/api/v1/users/9068821/files/170141578"
+                    data-api-returntype="File" /></span></p>
+              <p>&nbsp;</p>
+              <p><span style="color: #2b3e50;">After getting a better grasp of coding and game mechanics, I plan to
+                  later add more characters with more interesting move sets. Also, I want to incorporate different
+                  screens like a start screen, character selection screen, and game over screen just to make the game
+                  feel more like a real video game.</span></p>
+            </finalDiv>
+            <!--harri-->
+            <finalDiv class="hidden mt-6" id="harri_final" class="ab">
+              <h2><strong>Translation</strong></h2>
+              <p>This is a passageway from a microphone to its visualization based on its volume and frequency. It
+                begins by picking up sounds from a contact mic (a type of microphone that requires direct contact with a
+                surface to pick up its vibrations), to an analog amplifier circuit (to boost the gain since contact mics
+                can be very quiet). This is then fed into my p5.js sketch that rearranges the signal using a FFT<span
+                  style="font-size: 12pt;"> (Fast Fourier transform)&nbsp;</span>algorithm. This splits the sonic signal
+                into frequency bands at their corresponding volumes to produce a visual representation like this one. It
+                is a universal tool that can be applied with any kind of microphone, instrument or soundscape as the
+                code runs on the frequency spectrum of the sound inputed. I hope to continue adapting and using this
+                tool as a means of visual expression through sonic imagery.</p>
+              <p>&nbsp;</p>
+              <p>*** The volume of this video can be loud in certain moments, watch with caution***</p>
+             <!-- <p><iframe style="width: 720px; height: 405px;" title="A&amp;T Final Project Documentation"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D26401cb4-73b4-432b-ab34-abac013a4e2b"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>-->
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">Electronic Component:</span></p>
+              <p><img
+                  src="https://saic.instructure.com/users/9144294/files/170051789/preview?wrap=1&amp;verifier=jsszng03uyuumv921o8ssUlnnS3c52tdGKHzH2OV"
+                  alt="IMG_3854.jpg" width="200" height="200"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/9144294/files/170051789"
+                  data-api-returntype="File" /><img
+                  src="https://saic.instructure.com/users/9144294/files/170051808/preview?wrap=1&amp;verifier=Rsjsyb5mj4FqV4hMccytazVvbkh1TmFOdJVWRJRd"
+                  alt="IMG_3853.jpg" width="200" height="200"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/9144294/files/170051808"
+                  data-api-returntype="File" /> <img
+                  src="https://saic.instructure.com/users/9144294/files/170051826/preview?wrap=1&amp;verifier=lqSkc8o8oHbgVzIFFvomBHPZd7AfePk3ppwrXGnZ"
+                  alt="IMG_3855.jpg" width="200" height="200"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/9144294/files/170051826"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">Digital Component:</span></p>
+              <p><span>P5.js sketch: <a href="https://editor.p5js.org/haruhi_234/sketches/LEcPdjH_G" target="_blank"
+                    rel="noopener">https://editor.p5js.org/haruhi_234/sketches/LEcPdjH_G</a></span></p>
+            </finalDiv>
+            <!--jeff-->
+            <finalDiv class="hidden mt-6" id="jeff_final" class="ab">
+              <h2><strong>Technological advancement and Regression... as a Circuit</strong></h2>
+              <p><em>(a sculptural display [and performance?] by yours truly)</em></p>
+              <p>When it comes to charging your phone it seems that even the companies that tout high design prowess
+                have unfortunately left little thought to making the inevitable charging experience any more enjoyable
+                with the general 3-foot cable supplied with virtually all smartphones. This coupled with the lack of
+                outlets of convenient outlets in many places poses a less than user-friendly experience contrary to the
+                general ethos that most tech companies would like to display.&nbsp;I attempted to solve the problem of
+                inconvenient phone charging outlets with a common tool that's already made: extension cords. After
+                looking at some sculptures from The KTDuffy Project I was inspired to create some readymade sculptures
+                involving making a few of my outlets more accessible using online extension cords and adapters.</p>
+              <p>&nbsp;</p>
+              <p><img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170180853/preview?wrap=1&amp;verifier=5qFOuP9mk0aVhY8EjOigRQwQ4wze9f8eoe6LUScw"
+                  alt="IMG_2730.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170180853"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170180942/preview?wrap=1&amp;verifier=jdyw5Ra7e1MqaIb4y9KcKMZ4syHOYXDtUxeXuMh1"
+                  alt="IMG_2443.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170180942"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181589/preview?wrap=1&amp;verifier=L4YttKWzxFwzdBSPVRzKaek0ZZuRbPQA7ux3Z0QM"
+                  alt="IMG_2736.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181589"
+                  data-api-returntype="File" />&nbsp;<img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181037/preview?wrap=1&amp;verifier=pRR1vxradHfaN4uqlXO6tfhaisVzptx1VynTg7IO"
+                  alt="IMG_2724.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181037"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181067/preview?wrap=1&amp;verifier=IXA63cAOpY48zyxbh0xWVWBgq3cVAIIktz0OT342"
+                  alt="IMG_2725.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181067"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181412/preview?wrap=1&amp;verifier=DQ8ZTnlWhCnIFAAcp4OAoKV7NhVkm5z1iPGpsTWQ"
+                  alt="IMG_2720.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181412"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181476/preview?wrap=1&amp;verifier=1TCMgA1q3oL7LZwy5HEWndUDHDJKZfXOj89rHNuj"
+                  alt="IMG_2721.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181476"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181544/preview?wrap=1&amp;verifier=qDepXbDHis5OGOhaFmhUfNevHrpqqIDw6o5vjdMy"
+                  alt="IMG_2735.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181544"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181659/preview?wrap=1&amp;verifier=WZLBKvawGLbf12kLJkM6GfTFqmobw3PO0hr0FQIo"
+                  alt="IMG_2772-1.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181659"
+                  data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8694424/files/170181715/preview?wrap=1&amp;verifier=zohVdVHe7hlFGW7G5KICMvQ8sXkagKf5AHpE0YZS"
+                  alt="IMG_2761.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8694424/files/170181715"
+                  data-api-returntype="File" /></p>
+              <p>The new objects worked well as they created a central location in the middle of the room in which I
+                could plug my phone inform many different angles and charge my phone while I used it in comfort with the
+                provided 3-foot cable it came with. It quickly dawned on me that I would have to make these types of
+                sculptures for inaccessible plug in my house and while they may have been fun to make there was still
+                the issue of having the struggle to plug them in in the first place. At that point, the solution dawned
+                on me what if you only ever had to plug your phone once and never have to go without charge again...</p>
+              <!--<p><iframe style="width: 720px; height: 405px;" title="IMG_2744"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D1653a0ca-79ff-4a3c-8e80-abad016a383f"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>
+              <p><iframe style="width: 720px; height: 405px;" title="IMG_2745"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D95fe7f04-9966-4fb3-94e2-abad016a8ac3"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>
+              <p><iframe style="width: 720px; height: 405px;" title="IMG_2747"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3Db6e116d4-b19f-4ef8-88f4-abad01699339"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>
+              <p><iframe style="width: 720px; height: 405px;" title="IMG_2439"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D6e512e0f-5b9c-4ecd-bdf5-abad016b0081"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>-->
+            </finalDiv>
+            <!--jingzhou-->
+            <finalDiv class="hidden mt-6" id="jingzhou_final" class="ab">
+              <!--<p><iframe style="width: 720px; height: 405px;" title="WeChat_20200430212204"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D1a67c7b7-057d-4f80-9945-abae0032ddfb"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe><iframe style="width: 720px; height: 405px;" title="IMG_1232"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D850b04b3-dba6-40a4-970b-abae0032eb43"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>-->
+              <p><span style="font-weight: 400;">This work represents one of my understanding of a circuit, it&rsquo;s a
+                  runway I built around my kitchen for a mini pool ball, it was supposed to end where it started, to
+                  represent the nature of a circuit, however, I found that was too difficult to achieve, so I changed it
+                  into this. The runway starts at the top of the refrigerator, after a steep acceleration the ball hits
+                  the first turning point, then drive on a section across the sink, that&rsquo;s when it hits the second
+                  turning point, and then it would rides on a highway across the gap between tables, after glides
+                  smoothly through the table, it meets another accelerate section and finally hits the</span><span
+                  style="font-weight: 400;"> the king of spades and drops into the boots cup. The process of making the
+                  runway and adjusting it was a lot harder than I thought, but I finally made it and the drop sounds
+                  gorgeous. </span></p>
+            </finalDiv>
+            <!--lauren-->
+            <finalDiv class="hidden mt-6" id="lauren_final" class="ab">
+              <h2>Add Lauren Here</h2>>
+            </finalDiv>
+            <!--lucas-->
+            <finalDiv class="hidden mt-6" id="lucas_final" class="ab">
+              <p><span style="font-size: 14pt;"><strong>Life Clock </strong>(1 Minute)</span></p>
+              <!--<p><iframe style="width: 720px; height: 405px;" title="Life Clock copy"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D26e1a54f-c06a-4995-88fc-abae000d6bcf"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>-->
+              <p class="p1"><span class="s1">This project began as an attempt to create a clock that would count the
+                  time elapsed from the date and time of my birth in years, months, days, hours, minutes, and seconds (
+                  June 22, 2000 at 6:46 pm ). This "clock" is an accurate age counter. The <i>Life Clock </i>acts as
+                  both an art object and a personal tool. This was coded in p5.js with substantial help and guidance
+                  from Kristin.&nbsp;</span></p>
+            </finalDiv>
+            <!--minky-->
+            <finalDiv class="hidden mt-6" id="minky_final" class="ab">
+              <h2>Add Minky Here</h2>>
+            </finalDiv>
+            <!--os-->
+            <finalDiv class="hidden mt-6" id="os_final" class="ab">
+              <h2 class="p1"><span style="font-size: 18pt;"><strong>Data Visualization Glove</strong></span></h2>
+              <p class="p1"><span style="font-size: 18pt;"><strong> <img style="max-width: 320px; max-height: 320px;"
+                      src="https://saic.instructure.com/users/9117452/files/170055916/preview?wrap=1&amp;verifier=4EEShOs3dJbX9SMYSLomznYnibkRANDlWpYMBjEC"
+                      alt="WechatIMG21-1.jpeg"
+                      data-api-endpoint="https://saic.instructure.com/api/v1/users/9117452/files/170055916"
+                      data-api-returntype="File" /> <img style="max-width: 320px; max-height: 320px;"
+                      src="https://saic.instructure.com/users/9117452/files/170055932/preview?wrap=1&amp;verifier=alJnNC05AoOPeZB9cVh6LytAASarYQUTlcOcoHQD"
+                      alt="WechatIMG20-1.jpeg"
+                      data-api-endpoint="https://saic.instructure.com/api/v1/users/9117452/files/170055932"
+                      data-api-returntype="File" /></strong></span></p>
+              <p class="p1"><span style="font-size: 18pt;"><strong> <img
+                      src="https://saic.instructure.com/users/9117452/files/170055951/preview?wrap=1&amp;verifier=8eRB9YDhxpqdDX2vZP4wkZXA3uGyrJUebOj5rFEP"
+                      alt="Screen Shot 2020-04-29 at 2.39.25 PM-1.png" width="640" height="587"
+                      data-api-endpoint="https://saic.instructure.com/api/v1/users/9117452/files/170055951"
+                      data-api-returntype="File" /></strong></span></p>
+            </finalDiv>
+            <!--ravi-->
+            <finalDiv class="hidden mt-6" id="ravi_final" class="ab">
+              <h2>Title: Game editor Game</h2>
+              <p>Note: When uploading my final project I had to build my Unity level into a&nbsp; WebGL.&nbsp; My Unity
+                project stopped working and I have not been able to fix it. Fortunately, I decided to capture some
+                footage of me messing around in my game prior to uploading my project. I'll be uploading that footage
+                instead of the actual level. I will still try to get the game to work but, I might have to recreate the
+                whole thing.<br /><br />The concept was to create a 3D game environment that could be interacted with to
+                change fundamental elements and setting of the game itself. So basically , The game would be used to
+                edit itself. For example, through certain keyboard input you could increase the base movement speed that
+                you are able to move. There would also be interactables in the environment that would do the same, like
+                a glowing sphere that would change the skybox. I wanted to actually have the game take the players
+                webcam video and make that the skybox. Kind of like my code sketchbook 4(I never got this to work
+                however.)</p>
+             <!-- <p><iframe style="width: 720px; height: 405px;" title="final video"
+                  src="https://saic.instructure.com/courses/2644787/external_tools/retrieve?display=borderless&amp;url=https%3A%2F%2Fsaic.hosted.panopto.com%2FPanopto%2FLTI%2FLTI.aspx%3Fcustom_context_delivery%3D91cb3fe2-19f3-49cd-b088-abae00c8095a"
+                  width="720" height="405" allowfullscreen="allowfullscreen"
+                  webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen"
+                  allow="autoplay *"></iframe></p>-->
+            </finalDiv>
+            <!--rong-->
+            <finalDiv class="hidden mt-6" id="rong_final" class="ab">
+              <h2>Invisible doorsill:</h2>
+              <p><a href="https://editor.p5js.org/RongBao/present/aEEnp00ef" target="_blank"
+                  rel="noopener">https://editor.p5js.org/RongBao/present/aEEnp00ef</a>&nbsp;</p>
+
+              <!--<div id="media_object_m-5Xjiruq3J1MdtsHuQ9x1Vwga4Jj4suW3" style="width: 768px; height: 432px;"><iframe
+                  style="width: 300px; height: 169px;"
+                  src="https://saic.instructure.com/media_objects_iframe/m-5Xjiruq3J1MdtsHuQ9x1Vwga4Jj4suW3"
+                  width="100%" height="100%"></iframe></div>
+              <div id="media_object_m-5X9xgJP739yvhSrSzemYBzdzDVTgCuRb" style="width: 768px; height: 432px;"><iframe
+                  style="width: 300px; height: 169px;"
+                  src="https://saic.instructure.com/media_objects_iframe/m-5X9xgJP739yvhSrSzemYBzdzDVTgCuRb"
+                  width="100%" height="100%"></iframe></div>-->
+            </finalDiv>
+            <!--russell-->
+            <finalDiv class="hidden mt-6" id="russell_final" class="ab">
+              <h2><strong>Wire Tree</strong></h2>
+              <p><span style="font-weight: 400;">For my project I designed and created a wire tree that rests on top of
+                  a salt rock that also lights up.&nbsp;</span></p>
+              <p><strong>Materials</strong></p>
+              <ul>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">aluminum wire</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Bucket</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Drill</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Plyers</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Wire cutters</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">Salt lamp</span></li>
+                <li style="font-weight: 400;"><span style="font-weight: 400;">tape/glue</span></li>
+              </ul>
+              <p>&nbsp;</p>
+              <p><strong>Process</strong></p>
+              <p><span style="font-weight: 400;">I started off by taking the wire and wrapping it around the bucket
+                  until I had enough to work with. The reason for the bucket is to make sure every strand is roughly the
+                  same size and to hold all the wire in place while I work.&nbsp;</span><span
+                  style="font-weight: 400;">Once I have enough wire I start to feed it through holes that were pre
+                  drilled on the bottom of the bucket. Once every strand is placed I twist the wire to get a shape for
+                  the trunk. </span><span style="font-weight: 400;">I then start to separate multiple strands so that I
+                  can form the branches. After that I carefully roll all the strands to make the
+                  leaves.&nbsp;</span><span style="font-weight: 400;">Once this is all done I take the tree out of the
+                  bucket and separate sections of the bottom wire almost like I did for the branches. This is for the
+                  roots that will be used to hold the tree together with the salt lamp. Lastly I place the tree on top
+                  of the salt lamp, add some epoxy glue and then some tape to make sure it holds. I then plug it in and
+                  it's finished.</span></p>
+              <p><img
+                  src="https://cdn.discordapp.com/attachments/485546636324372500/705966662549241866/20200501_171619.jpg"
+                  alt="" width="186" height="383" /><img
+                  src="https://cdn.discordapp.com/attachments/485546636324372500/705966818233286656/20200501_213945.jpg"
+                  alt="" width="185" height="381" /><img
+                  src="https://cdn.discordapp.com/attachments/485546636324372500/705966957987627008/20200501_221458.jpg"
+                  alt="" width="186" height="383" /></p>
+            </finalDiv>
+            <!--sherrie-->
+            <finalDiv class="hidden mt-6" id="sherrie_final" class="ab">
+              <h2><span style="font-size: 24pt; color: #ffffff; background-color: #000000;"><strong>&nbsp;UNTITLED
+                    WEATHER PROJECT&nbsp;</strong></span></h2>
+              <p>This is the documentation of the current state of this <em>untitled weather project</em>.</p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170108814/preview?wrap=1&amp;verifier=zN4EUDhKIjqSoU45M0Ab3NxdXFIvStuidVEIRjig"
+                  alt="IMG_9065.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170108814"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p>The original plan involved pulling data from the <a href="https://developer.climacell.co/v3/reference"
+                  target="_blank" rel="noopener">climacell</a> API to generate corresponding animations.<br /><br />The
+                gifs below represent the five absolute states (clear, snow, rain, cloudy, fog), as well as
+                the<br />state in transition from sunset to sunrise to sunset (sped up).&nbsp;</p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">CLEAR:</span></p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170106836/preview?wrap=1&amp;verifier=xbHGYvH9CLrR7RScSuAt4O6wW7EMdFGHnAHSxxTe"
+                  alt="sunriseSunset.gif"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170106836"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">SNOW:</span></p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170106891/preview?wrap=1&amp;verifier=eZeIwpL1tmq5NSrEpORAqUBSFSfbJd2cSyGN7u17"
+                  alt="snow-ss-1.gif"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170106891"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">RAIN:</span></p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170106593/preview?wrap=1&amp;verifier=jdwF1K4Z03ddQQMgLZSawodp5jMgQMbN6KZJF3I4"
+                  alt="rain-ss.gif"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170106593"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">FOG:</span></p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170106284/preview?wrap=1&amp;verifier=fPpB8KlZqv2JRLEFlCmkCuW1P3bWgbsthDKh2QLO"
+                  alt="fog-ss.gif" data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170106284"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><span style="text-decoration: underline;">CLOUDY:</span></p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170106479/preview?wrap=1&amp;verifier=VmLec59HHjXaNHlzCTK6pKdgTknEcHZa4EuvZg58"
+                  alt="cloud-ss.gif"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170106479"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p>Theoretically, a user would be able to click on the "sun" (the center circle)<br />and see detailed
+                weather information.</p>
+              <p>&nbsp;</p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170107695/preview?wrap=1&amp;verifier=Y9Tm6gDsuGOqHUsWCsCQh0zBXUf4RlJKXkuFnEJk"
+                  alt="weather-09.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170107695"
+                  data-api-returntype="File" /></p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170109249/preview?wrap=1&amp;verifier=7heSe4qn8B6EDAv1TaR85uOTVC4CCxUFfsgAWQbw"
+                  alt="weather-snow-06.jpg"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170109249"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p>In an ideal world, this application would be installed in a user's studio or living
+                space,<br />projected onto a blank wall at full width. This then becomes an integrated,
+                dynamic<br />part of your daily life. The minimalistic design is intended to be just enough to
+                bring<br />life to your environment while feeding you necessary information without
+                overpowering<br />the room.&nbsp;<br /><br />Here is a shitty gif of a small scale visualization of this
+                description:</p>
+              <p><img style="max-width: 500px;"
+                  src="https://saic.instructure.com/users/6813100/files/170108799/preview?wrap=1&amp;verifier=PIOsAwjEV2rYjoDhMkkd68vgsT6ksvL8jGZmvBMR"
+                  alt="weather-documentation.gif"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/6813100/files/170108799"
+                  data-api-returntype="File" /></p>
+              <p>&nbsp;</p>
+              <p><strong>Final Thoughts for the Moment</strong></p>
+              <p>I'm not sure about the average person, but for the emotionally sensitive like <br />me, weather
+                significantly impacts my mood&nbsp;from the moment I wake up to <br />the moment I go to sleep. As I
+                grew up, I became affected and fascinated by the <br />concept of the seasonal affective disorder. While
+                this project does not dig deeply <br />into the science of it, it is where the idea is rooted;
+                therefore, resulting in the<br />meditative compositions and calming design elements.&nbsp;</p>
+            </finalDiv>
+            <!--sanding-->
+            <finalDiv class="hidden mt-6" id="sanding_final" class="ab">
+              <h2>APPLE</h2>
+              <iframe style="border: 1px solid #464646;" title="嵌入内容"
+                  src="https://saic.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b49a16ff-7bb9-4839-8580-abad0134477f&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;start=0&amp;interactivity=all"
+                  width="720" height="405" allowfullscreen="allowfullscreen" allow="autoplay"></iframe>
+              <p>&nbsp;</p>
+              <p>Due to the limited conditions, I've made some changes on my final project. My concept remains the
+                same&nbsp;as the final proposal I&nbsp;did before. This project is the response&nbsp;to the fact that
+                people can trace the ones got coronavirus. This pj5s piece invites everyone to scrape off the image, but
+                no matter how much you want to erase&nbsp;the portrait. The square is like a GPS&nbsp;and it&nbsp;always
+                locates on the person in this portrait. The apple in this image is a representation of the cellphone
+                brand APPLE. I am trying to emphasize the point that no matter how much we try to hide and keep our
+                privacy, our information could still be easily found, especially the ones using(holding) the Apple.
+                "Thanks to the APPLE!"</p>
+              <p>my sketch:</p>
+              <p><a href="https://editor.p5js.org/sanding666/present/Y3_HUXaWC" target="_blank"
+                  rel="noopener noreferrer">https://editor.p5js.org/sanding666/present/Y3_HUXaWC</a></p>
+              <iframe src="https://editor.p5js.org/sanding666/embed/Y3_HUXaWC" width="400" height="400"></iframe>
+            </finalDiv>
+            <!--sarah-->
+            <finalDiv class="hidden mt-6" id="sarah_final" class="ab">
+              <p><strong>CONCEPT:</strong></p>
+              <p><span style="font-weight: 400;">This idea was formed from an observation I had about my younger
+                  brother&rsquo;s childhood in comparison to mine. He is constantly stimulated by his ipad which
+                  contains numerous benefits of educational learning through the internet or, in his case, fun Youtube
+                  videos.&nbsp;</span></p>
+              <p><span style="font-weight: 400;">But I thought of the material of the iPad&mdash; the sleek titanium
+                  back with an aluminosilicate glass&mdash; and I thought of how much it deprives the user of the
+                  sensation of children&rsquo;s books; the joy of physically handling different types of
+                  material.&nbsp;</span></p>
+              <p><span style="font-weight: 400;">I cherished the way the pages felt, the illustrative touch, the smell
+                  of the book, or the surprise element from a pop-up book. Experiencing the different types of craft is
+                  something I feel like my younger brother misses out on.&nbsp;</span></p>
+              <p>&nbsp;</p>
+              <p><strong>PROJECT:</strong></p>
+              <p><span style="font-weight: 400;">In thinking of how to transform a storybook, I thought of embedding LCD
+                  screens to provide an animated gif to the pages. This added element of technology can be exciting, but
+                  you can also experience a book by its original form.&nbsp;</span></p>
+              <p><img id="170380438" style="max-width: 320px; max-height: 320px;"
+                  src="https://saic.instructure.com/users/8603319/files/170380438/preview?verifier=TQ0BU6Go83zIEbLN2iOBpyZeSstOhF7T1XPgIMu8"
+                  alt="harpl-the-giving-tree.jpg" width="204" height="204"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8603319/files/170380438"
+                  data-api-returntype="File" />&nbsp;</p>
+              <p><span style="font-weight: 400;">I downloaded a pdf of The Giving Tree, a popular children&rsquo;s book
+                  by Shel Silverstein, and created animated gifs on Photoshop.&nbsp;</span></p>
+              <p><span style="font-weight: 400;">I then coded the gifs onto p5js, which would then be activated through
+                  an LCD screen through Arduino. The user&hellip; or&hellip; reader(?)&hellip; can use a sensor on each
+                  page to activate the code with the animated gif.</span></p>
+              <p><img
+                  src="https://saic.instructure.com/users/8603319/files/170380947/preview?wrap=1&amp;verifier=3tpg6oq66xFNoZK0x1zpD42yzPTNgWKWaukSL63e"
+                  alt="children reading givingtree.jpg" width="600" height="441"
+                  data-api-endpoint="https://saic.instructure.com/api/v1/users/8603319/files/170380947"
+                  data-api-returntype="File" /></p>
+              <p><a href="https://editor.p5js.org/sarahkim711/sketches/7wCwCGQE1" target="_blank" rel="noopener">Example
+                  1 of The Giving Tree </a></p>
+              <p><iframe src="https://editor.p5js.org/sarahkim711/embed/7wCwCGQE1" width="840" height="553"></iframe>
+              </p>
+              <p>&nbsp;</p>
+              <p><a href="https://editor.p5js.org/sarahkim711/sketches/b9vPbX-v5" target="_blank" rel="noopener">Example
+                  3 of The Giving Tree</a></p>
+              <p><iframe src="https://editor.p5js.org/sarahkim711/embed/b9vPbX-v5" width="840" height="553"></iframe>
+              </p>
+              <p>&nbsp;</p>
+              <p><a href="https://editor.p5js.org/sarahkim711/sketches/myHsWtgsA" target="_blank" rel="noopener">Example
+                  2 of The Giving Tree</a></p>
+              <p><iframe src="https://editor.p5js.org/sarahkim711/embed/51CymPd15" width="840" height="553"></iframe>
+              </p>
+            </finalDiv>
+            <!--tim-->
+            <finalDiv class="hidden mt-6" id="tim_final" class="ab">
+              <h2>Title: Shape of your heart</h2>
+              <p>Description: The idea is to communicate one's heartbeat with p5js and presents such relationship as a
+                animation. I came up with this idea because of my recent interest in Buddhism. According to Buddhism,
+                meditation is an important part and I want to monitor such process through technologies. In order to
+                achieve that, I installed a heartbeat sensor to Arduino so it can measure heartbeat as the output. On
+                p5js, the graphic will change accordingly due to the heartbeat. I realized my project has changed due to
+                the pandemic as the final version focuses more on the graphic instead of meditation, so I titled it
+                "Shape of your heart" to fit the current outcome.&nbsp;</p>
+              <p>Link to my p5js sketch: <a href="https://editor.p5js.org/Chainkush/sketches/OOJsDX-B9" target="_blank"
+                  rel="noopener">https://editor.p5js.org/Chainkush/sketches/OOJsDX-B9</a></p>
+              <!--<p><iframe style="width: 400px; height: 225px; display: inline-block;"
+                  title="Video player for Ats Final .mp4" data-media-type="video"
+                  src="https://saic.instructure.com/media_objects_iframe/m-47Z83wCgvQ4YWbn4S4KHUwpQYZL2uv1q?type=video"
+                  allowfullscreen="allowfullscreen" allow="fullscreen"
+                  data-media-id="m-47Z83wCgvQ4YWbn4S4KHUwpQYZL2uv1q"></iframe></p>-->
+              </finalDiv>
+            <!--winnie-->
+            <finalDiv class="hidden mt-6" id="winnie_final" class="ab">
+              <h2><strong>This is an interactive video project.</strong></h2>
+              <p>You are Winnie Chen, a student getting ready for online class.</p>
+              <p>You accidentally get into the wrong zoom call, a group project meeting full of strangers.&nbsp;However,everyone continues the meeting normally. No one react&nbsp;</p>
+              <p>to your entrance. Why is that?</p>
+              <p>&nbsp;</p>
+              <p>Work in Progress</p>
+              <p>---------------------</p>
+              <p>p5.js editor: <a href="https://editor.p5js.org/wchen15/sketches/s7Kvz9SaA" target="_blank"
+                  rel="noopener">https://editor.p5js.org/wchen15/sketches/s7Kvz9SaA</a></p>
+              <p>I'm still working on how to layer a &nbsp;webcam view onto the video I made (attached below). p5.js cannot handle files over 5 MB,</p>
+              <p>&nbsp;so I'll have to set it up in other hosting platforms without file size limitations, after setting up the code that activate the webcam at certain timing.&nbsp;</p>
+              <p>&nbsp;</p>
+              <p><iframe src="https://www.youtube.com/embed/vMrkoCLuxjU" width="560" height="315"
+                  allowfullscreen="allowfullscreen"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></p>
+            </finalDiv>
+            <!--test-->
+            <finalDiv class="hidden mt-6" id="sherrieFinal_final" class="ab">
+                    <h2>test content here</h2>
+            </finalDiv>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="absolute bottom-0 right-0 pr-16 pb-8">
+      <artist-cred class="hidden" id="sherrie_credit" class="ab">Artwork by Sherrie Fay Lin</artist-cred>
+      <artist-cred class="hidden" id="sherrieFinal_credit" class="ab">Artwork by Sherrie Fay Lin</artist-cred>
+      <artist-cred class="hidden" id="ani_credit" class="ab">Artwork by Ani Quintana</artist-cred>
+      <artist-cred class="hidden" id="yana_credit" class="ab">Artwork by Ayana Cooper</artist-cred>
+      <artist-cred class="hidden" id="cathy_credit" class="ab">Artwork by Cathy Zhang</artist-cred>
+      <artist-cred class="hidden" id="cher_credit" class="ab">Artwork by Cher Feng</artist-cred>
+      <artist-cred class="hidden" id="chloe_credit" class="ab">Artwork by Chloe Thompson</artist-cred>
+      <artist-cred class="hidden" id="harri_credit" class="ab">Artwork by Haruhi Kobayashi</artist-cred>
+      <artist-cred class="hidden" id="jeff_credit" class="ab">Artwork by Jeffrey Kaya</artist-cred>
+      <artist-cred class="hidden" id="jingzhou_credit" class="ab">Artwork by Jingzhou Long</artist-cred>
+      <artist-cred class="hidden" id="lauren_credit" class="ab">Artwork by Lauren Chaszewski</artist-cred>
+      <artist-cred class="hidden" id="lucas_credit" class="ab">Artwork by Lucas Flanders</artist-cred>
+      <artist-cred class="hidden" id="minky_credit" class="ab">Artwork by Minky Ahn</artist-cred>
+      <artist-cred class="hidden" id="os_credit" class="ab">Artwork by Os Wang</artist-cred>
+      <artist-cred class="hidden" id="ravi_credit" class="ab">Artwork by Ravi Heeralal</artist-cred>
+      <artist-cred class="hidden" id="rong_credit" class="ab">Artwork by Rong Bao</artist-cred>
+      <artist-cred class="hidden" id="russell_credit" class="ab">Artwork by Russell Goins</artist-cred>
+      <artist-cred class="hidden" id="sanding_credit" class="ab">Artwork by Sanding Yi</artist-cred>
+      <artist-cred class="hidden" id="sarah_credit" class="ab">Artwork by Sarah Won Kim</artist-cred>
+      <artist-cred class="hidden" id="tim_credit" class="ab">Artwork by Tim Zhang</artist-cred>
+      <artist-cred class="hidden" id="winnie_credit" class="ab">Artwork by Winnie Chen</artist-cred>
+
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
