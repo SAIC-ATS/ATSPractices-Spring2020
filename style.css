@@ -22,3 +22,7 @@ finalDiv{
   display: none;
 }
 
+a:hover{
+  color: text-orange-400;
+}
+
