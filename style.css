@@ -21,8 +21,11 @@ button{
 finalDiv{
   display: none;
 }
+a:link{
+  color:#4299e1;
+}
 
 a:hover{
-  color: text-orange-400;
+  color: #ed8936;
 }
 
