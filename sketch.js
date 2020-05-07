@@ -399,6 +399,8 @@ function showFinal() {
   sketchbook.style.display = 'none';
   harriButton.hide();
   aboutCanvas = false;
+  background(255);
+  finalProjectCanvas=true;
 }
 
 
@@ -417,19 +419,23 @@ function showStudent(name) {
   if (finalProjectCanvas== false){  let student = students.find(s => s.name == name)
   student.setup()
   student.show = true;
-  artistCredit.style.display = 'block';}
+  artistCredit.style.display = 'block';}else{
+    student.show = false;
+  artistCredit.style.display = 'none';
+  }
 
 }
 
 function showFinalProject(name) {
   finalProjectCanvas=true;
-  background(255)
  // console.log('trying to display final from', name)
   var finalDivs = document.getElementById(name + '_final');
   // Hide all finals
   for (let index = 0; index < students.length; index++) {
     const student = students[index];
     let student_final = document.getElementById(student['name'] + '_final')
+    let student_credit = document.getElementById(student['name'] + '_credit')
+    student_credit.style.display = 'none';
     student_final.style.display = 'none';
   }
   // display div
