@@ -32,10 +32,10 @@
           onclick="showAbout()">About</button>
       </div>
 
-      <div class="flex-1" style="min-height: 320; max-height: 900; overflow: scroll;">
+      <div class="flex-1 " style="min-height: 320; max-height: 900;">
         <div class="mainpage mt-20 h-full w-full md:w-5/6 lg:w-4/5 ml-auto mr-auto" style="float:center">
 
-          <div class="about hidden" id="about">
+          <div class="about hidden overflow-y-scroll" id="about">
             <h2 class="text-2xl fint-bold text-orange-500">About</h2>
             <div class="mt-10 overflow-y-auto">
               <p>This team-taught, introductory course provides a foundation for most additional coursework in the Art
@@ -60,8 +60,8 @@
             </div>
           </div>
 
-          <div class="sketchbook hidden flex" id="sketchbook">
-            <button class="font-bold mr-4 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
+          <div class="sketchbook flex" id="sketchbook">
+            <div> <button class="font-bold mr-4 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
               onclick="showStudent('ani')">Ani Quintana</button>
             <button class="font-bold mr-4 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
               onclick="showStudent('yana')">Ayana Cooper</button>
@@ -100,7 +100,33 @@
             <button class="font-bold mr-4 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
               onclick="showStudent('tim')">Tim Zhang</button>
             <button class="font-bold mr-4 text-orange-500 mb-4 hover:text-gray-700 focus:outline-none"
-              onclick="showStudent('winnie')">Winnie Chen</button>
+              onclick="showStudent('winnie')">Winnie Chen</button></div>
+           
+
+            <!-- Footer -->
+              <div class="absolute bottom-0 right-0 pr-16 pb-8">
+                <artist-cred class="hidden" id="sherrie_credit" class="ab">Artwork by Sherrie Fay Lin</artist-cred>
+                <artist-cred class="hidden" id="sherrieFinal_credit" class="ab">Artwork by Sherrie Fay Lin</artist-cred>
+                <artist-cred class="hidden" id="ani_credit" class="ab">Artwork by Ani Quintana</artist-cred>
+                <artist-cred class="hidden" id="yana_credit" class="ab">Artwork by Ayana Cooper</artist-cred>
+                <artist-cred class="hidden" id="cathy_credit" class="ab">Artwork by Cathy Zhang</artist-cred>
+                <artist-cred class="hidden" id="cher_credit" class="ab">Artwork by Cher Feng</artist-cred>
+                <artist-cred class="hidden" id="chloe_credit" class="ab">Artwork by Chloe Thompson</artist-cred>
+                <artist-cred class="hidden" id="harri_credit" class="ab">Artwork by Haruhi Kobayashi</artist-cred>
+                <artist-cred class="hidden" id="jeff_credit" class="ab">Artwork by Jeffrey Kaya</artist-cred>
+                <artist-cred class="hidden" id="jingzhou_credit" class="ab">Artwork by Jingzhou Long</artist-cred>
+                <artist-cred class="hidden" id="lauren_credit" class="ab">Artwork by Lauren Chaszewski</artist-cred>
+                <artist-cred class="hidden" id="lucas_credit" class="ab">Artwork by Lucas Flanders</artist-cred>
+                <artist-cred class="hidden" id="minky_credit" class="ab">Artwork by Minky Ahn</artist-cred>
+                <artist-cred class="hidden" id="os_credit" class="ab">Artwork by Os Wang</artist-cred>
+                <artist-cred class="hidden" id="ravi_credit" class="ab">Artwork by Ravi Heeralal</artist-cred>
+                <artist-cred class="hidden" id="rong_credit" class="ab">Artwork by Rong Bao</artist-cred>
+                <artist-cred class="hidden" id="russell_credit" class="ab">Artwork by Russell Goins</artist-cred>
+                <artist-cred class="hidden" id="sanding_credit" class="ab">Artwork by Sanding Yi</artist-cred>
+                <artist-cred class="hidden" id="sarah_credit" class="ab">Artwork by Sarah Won Kim</artist-cred>
+                <artist-cred class="hidden" id="tim_credit" class="ab">Artwork by Tim Zhang</artist-cred>
+                <artist-cred class="hidden" id="winnie_credit" class="ab">Artwork by Winnie Chen</artist-cred>
+              </div>
           </div>
 
           <div class="final hidden flex" id="final">
@@ -187,8 +213,8 @@
                 all connected even in quarantine.</p>
               <p>&nbsp;</p>
               <iframe src="https://editor.p5js.org/yana.coop103/embed/C5IRwYB4W"></iframe>
-                <p>Project Link: <a title="Link" href="https://editor.p5js.org/yana.coop103/sketches/C5IRwYB4W"
-                    target="_blank" rel="noopener">https://editor.p5js.org/yana.coop103/sketches/C5IRwYB4W</a></p>
+              <p>Project Link: <a title="Link" href="https://editor.p5js.org/yana.coop103/sketches/C5IRwYB4W"
+                  target="_blank" rel="noopener">https://editor.p5js.org/yana.coop103/sketches/C5IRwYB4W</a></p>
 
               </p>
             </finalDiv>
@@ -513,10 +539,10 @@
               </video>
               <br>
               <p class="p1"><span class="s1">This project began as an attempt to create a clock that would count the
-                time elapsed from the date and time of my birth in years, months, days, hours, minutes, and seconds (
-                June 22, 2000 at 6:46 pm ). This "clock" is an accurate age counter. The <i>Life Clock </i>acts as
-                both an art object and a personal tool. This was coded in p5.js with substantial help and guidance
-                from Kristin.&nbsp;</span></p>
+                  time elapsed from the date and time of my birth in years, months, days, hours, minutes, and seconds (
+                  June 22, 2000 at 6:46 pm ). This "clock" is an accurate age counter. The <i>Life Clock </i>acts as
+                  both an art object and a personal tool. This was coded in p5.js with substantial help and guidance
+                  from Kristin.&nbsp;</span></p>
               <br>
               <iframe src="https://editor.p5js.org/lfland/embed/VuzND3Kv9" width="700" height="500"></iframe>
             </finalDiv>
@@ -584,7 +610,9 @@
                       alt="Screen Shot 2020-04-29 at 2.39.25 PM-1.png" width="640" height="587"
                       data-api-endpoint="https://saic.instructure.com/api/v1/users/9117452/files/170055951"
                       data-api-returntype="File" /></strong></span></p>
-              <p>Test: <a href="https://editor.p5js.org/OsW/sketches/ZxiFyuKLa">https://editor.p5js.org/OsW/sketches/ZxiFyuKLa</a> (Need to use together with Arduino)</p>
+              <p>Test: <a
+                  href="https://editor.p5js.org/OsW/sketches/ZxiFyuKLa">https://editor.p5js.org/OsW/sketches/ZxiFyuKLa</a>
+                (Need to use together with Arduino)</p>
             </finalDiv>
             <!--ravi-->
             <finalDiv class="hidden mt-6" id="ravi_final" class="ab">
@@ -601,7 +629,9 @@
                 webcam video and make that the skybox. Kind of like my code sketchbook 4(I never got this to work
                 however.)</p>
               <br>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/T1Tu08Fb25Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/T1Tu08Fb25Y" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
             </finalDiv>
             <!--rong-->
             <finalDiv class="hidden mt-6" id="rong_final" class="ab">
@@ -823,8 +853,10 @@
               <p>Link to my p5js sketch: <a href="https://editor.p5js.org/Chainkush/sketches/OOJsDX-B9" target="_blank"
                   rel="noopener">https://editor.p5js.org/Chainkush/sketches/OOJsDX-B9</a></p>
               <br>
-              <iframe src="https://player.vimeo.com/video/416088646" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-              <p><a href="https://vimeo.com/416088646">Ats Final</a> from <a href="https://vimeo.com/user102571621">Tim Zhang</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+              <iframe src="https://player.vimeo.com/video/416088646" width="640" height="360" frameborder="0"
+                allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <p><a href="https://vimeo.com/416088646">Ats Final</a> from <a href="https://vimeo.com/user102571621">Tim
+                  Zhang</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
               </video>
             </finalDiv>
             <!--winnie-->
@@ -850,35 +882,7 @@
         </div>
       </div>
     </div>
-    <!-- Footer -->
-    <div class="absolute bottom-0 right-0 pr-16 pb-8">
-      <artist-cred class="hidden" id="sherrie_credit" class="ab">Artwork by Sherrie Fay Lin</artist-cred>
-      <artist-cred class="hidden" id="sherrieFinal_credit" class="ab">Artwork by Sherrie Fay Lin</artist-cred>
-      <artist-cred class="hidden" id="ani_credit" class="ab">Artwork by Ani Quintana</artist-cred>
-      <artist-cred class="hidden" id="yana_credit" class="ab">Artwork by Ayana Cooper</artist-cred>
-      <artist-cred class="hidden" id="cathy_credit" class="ab">Artwork by Cathy Zhang</artist-cred>
-      <artist-cred class="hidden" id="cher_credit" class="ab">Artwork by Cher Feng</artist-cred>
-      <artist-cred class="hidden" id="chloe_credit" class="ab">Artwork by Chloe Thompson</artist-cred>
-      <artist-cred class="hidden" id="harri_credit" class="ab">Artwork by Haruhi Kobayashi</artist-cred>
-      <artist-cred class="hidden" id="jeff_credit" class="ab">Artwork by Jeffrey Kaya</artist-cred>
-      <artist-cred class="hidden" id="jingzhou_credit" class="ab">Artwork by Jingzhou Long</artist-cred>
-      <artist-cred class="hidden" id="lauren_credit" class="ab">Artwork by Lauren Chaszewski</artist-cred>
-      <artist-cred class="hidden" id="lucas_credit" class="ab">Artwork by Lucas Flanders</artist-cred>
-      <artist-cred class="hidden" id="minky_credit" class="ab">Artwork by Minky Ahn</artist-cred>
-      <artist-cred class="hidden" id="os_credit" class="ab">Artwork by Os Wang</artist-cred>
-      <artist-cred class="hidden" id="ravi_credit" class="ab">Artwork by Ravi Heeralal</artist-cred>
-      <artist-cred class="hidden" id="rong_credit" class="ab">Artwork by Rong Bao</artist-cred>
-      <artist-cred class="hidden" id="russell_credit" class="ab">Artwork by Russell Goins</artist-cred>
-      <artist-cred class="hidden" id="sanding_credit" class="ab">Artwork by Sanding Yi</artist-cred>
-      <artist-cred class="hidden" id="sarah_credit" class="ab">Artwork by Sarah Won Kim</artist-cred>
-      <artist-cred class="hidden" id="tim_credit" class="ab">Artwork by Tim Zhang</artist-cred>
-      <artist-cred class="hidden" id="winnie_credit" class="ab">Artwork by Winnie Chen</artist-cred>
-
-
-    </div>
   </div>
-
-
 </body>
 
 </html>
