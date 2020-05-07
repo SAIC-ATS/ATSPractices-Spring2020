@@ -414,14 +414,16 @@ function showStudent(name) {
     student_credit.style.display = 'none';
   }
   // Setup the student
-  let student = students.find(s => s.name == name)
+  if (finalProjectCanvas== false){  let student = students.find(s => s.name == name)
   student.setup()
   student.show = true;
-  artistCredit.style.display = 'block';
+  artistCredit.style.display = 'block';}
+
 }
 
 function showFinalProject(name) {
   finalProjectCanvas=true;
+  background(255)
  // console.log('trying to display final from', name)
   var finalDivs = document.getElementById(name + '_final');
   // Hide all finals
